@@ -68,6 +68,10 @@ allprojects {
         useJUnitPlatform()
     }
 
+    tasks.withType(Sign) {
+        setEnabled(false)
+    }
+
     dependencies {
         testCompile "org.junit.jupiter:junit-jupiter:$junitVersion"
         testCompile "org.mockito:mockito-junit-jupiter:$mockitoJunitVersion"
@@ -95,6 +99,3 @@ configure(subprojects.findAll { it.name != 'integration-tests' }) {
     apply from: "$rootDir/gradle/jacoco/build.gradle"
 }
 
-tasks.withType(Sign) {
-    setEnabled = false
-}
