@@ -83,12 +83,11 @@ nexusStaging {
 
 
 signing {
-    setRequired({false
-//        project.version != "unspecified" && gradle.taskGraph.hasTask("publishToSonatype")
-    })
+    required { false }
     sign publishing.publications.maven
     def signingKey = new File("$rootDir/web3j.asc")
     if (signingKey.exists()) {
         useInMemoryPgpKeys(signingKey.getText('UTF-8'), System.getenv('GPG_PASSPHRASE'))
     }
 }
+
