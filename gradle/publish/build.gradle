@@ -83,8 +83,8 @@ nexusStaging {
 
 
 signing {
-    setRequired({
-        project.version != "unspecified" && gradle.taskGraph.hasTask("publishToSonatype")
+    setRequired({false
+//        project.version != "unspecified" && gradle.taskGraph.hasTask("publishToSonatype")
     })
     sign publishing.publications.maven
     def signingKey = new File("$rootDir/web3j.asc")
