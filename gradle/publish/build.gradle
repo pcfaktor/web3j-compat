@@ -83,7 +83,7 @@ nexusStaging {
 
 
 signing {
-    required { false }
+    this.setRequired(false)
     sign publishing.publications.maven
     def signingKey = new File("$rootDir/web3j.asc")
     if (signingKey.exists()) {
